@@ -42,11 +42,18 @@
             NSString *text = [RCTConvert NSString:options[@"message"]];
             [composeController setInitialText:text];
         }
-
-
+        composeController.completionHandler = ^(SLComposeViewControllerResult result) {
+            if (result == SLComposeViewControllerResultDone) {
+                successCallback(@[@"success"]);
+            } else {
+                NSString *errorMessage = @"Cancelled";
+                NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
+                NSError *error = [NSError errorWithDomain:@"com.rnshare" code:2 userInfo:userInfo];
+                failureCallback(error);
+            }
+        };
         UIViewController *ctrl = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
         [ctrl presentViewController:composeController animated:YES completion:Nil];
-        successCallback(@[]);
       } else {
         NSString *errorMessage = @"Not installed";
         NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
