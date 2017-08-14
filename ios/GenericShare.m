@@ -61,10 +61,9 @@
         NSString *errorMessage = @"Not installed";
         NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
         NSError *error = [NSError errorWithDomain:@"com.rnshare" code:1 userInfo:userInfo];
-
+          
         RCTLog(errorMessage);
         failureCallback(error);
-
         NSString *escapedString = [options[@"message"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
 
         if ([options[@"social"] isEqualToString:@"twitter"]) {

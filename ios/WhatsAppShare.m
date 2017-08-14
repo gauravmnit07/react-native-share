@@ -12,9 +12,7 @@
 - (void)shareSingle:(NSDictionary *)options
     failureCallback:(RCTResponseErrorBlock)failureCallback
     successCallback:(RCTResponseSenderBlock)successCallback {
-
     RCTLog(@"Try open view");
-
     if ([options objectForKey:@"message"] && [options objectForKey:@"message"] != [NSNull null]) {
         NSString *text = [RCTConvert NSString:options[@"message"]];
         text = [text stringByAppendingString: [@" " stringByAppendingString: options[@"url"]] ];

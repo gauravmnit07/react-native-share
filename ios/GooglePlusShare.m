@@ -14,7 +14,6 @@
     successCallback:(RCTResponseSenderBlock)successCallback {
 
     RCTLog(@"Try open view");
-
     if ([options objectForKey:@"url"] && [options objectForKey:@"url"] != [NSNull null]) {
         NSString *url = [NSString stringWithFormat:@"https://plus.google.com/share?url=%@", options[@"url"]];
         NSURL *gplusURL = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -25,6 +24,10 @@
         } else {
             // Cannot open gplus
             RCTLog(@"error web intent");
+            NSString *errorMessage = @"Cannot open gplus web";
+            NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
+            NSError *error = [NSError errorWithDomain:@"com.rnshare" code:2 userInfo:userInfo];
+            failureCallback(error);
         }
     }
 }
