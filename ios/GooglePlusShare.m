@@ -13,7 +13,7 @@
     failureCallback:(RCTResponseErrorBlock)failureCallback
     successCallback:(RCTResponseSenderBlock)successCallback {
 
-    NSLog(@"Try open view");
+    RCTLog(@"Try open view");
 
     if ([options objectForKey:@"url"] && [options objectForKey:@"url"] != [NSNull null]) {
         NSString *url = [NSString stringWithFormat:@"https://plus.google.com/share?url=%@", options[@"url"]];
@@ -24,7 +24,7 @@
             successCallback(@[]);
         } else {
             // Cannot open gplus
-            NSLog(@"error web intent");
+            RCTLog(@"error web intent");
         }
     }
 }

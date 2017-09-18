@@ -59,26 +59,26 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)options
     
     NSString *social = [RCTConvert NSString:options[@"social"]];
     if (social) {
-        NSLog(social);
+        RCTLog(social);
         if([social isEqualToString:@"facebook"]) {
-            NSLog(@"TRY OPEN FACEBOOK");
+            RCTLog(@"TRY OPEN FACEBOOK");
             GenericShare *shareCtl = [[GenericShare alloc] init];
             [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback serviceType: SLServiceTypeFacebook];
         } else if([social isEqualToString:@"twitter"]) {
-            NSLog(@"TRY OPEN Twitter");
+            RCTLog(@"TRY OPEN Twitter");
             GenericShare *shareCtl = [[GenericShare alloc] init];
             [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback serviceType: SLServiceTypeTwitter];
         } else if([social isEqualToString:@"googleplus"]) {
-            NSLog(@"TRY OPEN google plus");
+            RCTLog(@"TRY OPEN google plus");
             GooglePlusShare *shareCtl = [[GooglePlusShare alloc] init];
             [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback];
         } else if([social isEqualToString:@"whatsapp"]) {
-            NSLog(@"TRY OPEN whatsapp");
+            RCTLog(@"TRY OPEN whatsapp");
             
             WhatsAppShare *shareCtl = [[WhatsAppShare alloc] init];
             [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback];
         } else if([social isEqualToString:@"email"]) {
-            NSLog(@"TRY OPEN email");
+            RCTLog(@"TRY OPEN email");
             EmailShare *shareCtl = [[EmailShare alloc] init];
             [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback];
         }
