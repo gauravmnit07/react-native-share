@@ -14,12 +14,12 @@
     failureCallback:(RCTResponseErrorBlock)failureCallback
     successCallback:(RCTResponseSenderBlock)successCallback {
 
-    NSLog(@"Try open view");
+    RCTLog(@"Try open view");
 
     if ([options objectForKey:@"message"] && [options objectForKey:@"message"] != [NSNull null]) {
         NSString *text = [RCTConvert NSString:options[@"message"]];
 
-        NSLog(@"Try open view");
+        RCTLog(@"Try open view");
 
         NSString *subject = @"";
         NSString *message = @"";
@@ -42,7 +42,7 @@
             successCallback(@[]);
         } else {
             // Cannot open email
-            NSLog(@"Cannot open email");
+            RCTLog(@"Cannot open email");
         }
     }
 

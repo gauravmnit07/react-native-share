@@ -14,7 +14,7 @@
     successCallback:(RCTResponseSenderBlock)successCallback
     serviceType:(NSString*)serviceType {
 
-    NSLog(@"Try open view");
+    RCTLog(@"Try open view");
     if([SLComposeViewController isAvailableForServiceType:serviceType]) {
 
         SLComposeViewController *composeController = [SLComposeViewController  composeViewControllerForServiceType:serviceType];
@@ -59,7 +59,7 @@
         NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
         NSError *error = [NSError errorWithDomain:@"com.rnshare" code:1 userInfo:userInfo];
 
-        NSLog(errorMessage);
+        RCTLog(errorMessage);
         failureCallback(error);
 
         NSString *escapedString = [options[@"message"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
@@ -82,7 +82,7 @@
 
       if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
           [application openURL:schemeURL options:@{} completionHandler:nil];
-          NSLog(@"Open %@: %d", schemeURL);
+          RCTLog(@"Open %@: %d", schemeURL);
       }
 
   }
