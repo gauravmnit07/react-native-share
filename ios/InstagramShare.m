@@ -145,7 +145,7 @@
     
     if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
         [application openURL:schemeURL options:@{} completionHandler:nil];
-        NSLog(@"Open %@: %d", schemeURL);
+        RCTLog(@"Open %@: %d", schemeURL);
     }
     
 }
