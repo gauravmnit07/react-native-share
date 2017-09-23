@@ -53,6 +53,9 @@
             }
         };
         UIViewController *ctrl = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        while (ctrl.presentedViewController) {
+            ctrl = ctrl.presentedViewController;
+        }
         [ctrl presentViewController:composeController animated:YES completion:Nil];
       } else {
         NSString *errorMessage = @"Not installed";
