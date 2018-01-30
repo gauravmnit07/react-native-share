@@ -15,7 +15,7 @@
     serviceType:(NSString*)serviceType {
 
     RCTLog(@"Try open view");
-    if([SLComposeViewController isAvailableForServiceType:serviceType]) {
+    if([SLComposeViewController isAvailableForServiceType:serviceType] || ([serviceType isEqualToString:SLServiceTypeTwitter] && [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]) || ([serviceType isEqualToString:SLServiceTypeFacebook] && [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]))
 
         SLComposeViewController *composeController = [SLComposeViewController  composeViewControllerForServiceType:serviceType];
 
