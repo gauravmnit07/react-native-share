@@ -99,4 +99,9 @@ public abstract class ShareIntent {
     protected abstract String getPackage();
     protected abstract String getDefaultWebLink();
     protected abstract String getPlayStoreLink();
+
+    public void clearExtras() {
+        this.getIntent().removeExtra(Intent.EXTRA_TEXT);
+        this.getIntent().removeExtra(Intent.EXTRA_STREAM);
+    }
 }
