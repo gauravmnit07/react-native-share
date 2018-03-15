@@ -41,6 +41,7 @@ public abstract class ShareIntent {
                 this.getIntent().putExtra(Intent.EXTRA_TEXT, options.getString("message"));
                 this.getIntent().addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             } else {
+                this.getIntent().setType("text/plain");
                 this.getIntent().putExtra(Intent.EXTRA_TEXT, options.getString("message") + " " + options.getString("url"));
             }
         } else if (ShareIntent.hasValidKey("url", options)) {
@@ -54,6 +55,7 @@ public abstract class ShareIntent {
                 this.getIntent().putExtra(Intent.EXTRA_TEXT, options.getString("url"));
             }
         } else if (ShareIntent.hasValidKey("message", options) ) {
+            this.getIntent().setType("text/plain");
             this.getIntent().putExtra(Intent.EXTRA_TEXT, options.getString("message"));
         }
     }
