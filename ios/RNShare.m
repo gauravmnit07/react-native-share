@@ -1,4 +1,3 @@
-#import <MessageUI/MessageUI.h>
 #import "RNShare.h"
 // import RCTConvert
 #if __has_include(<React/RCTConvert.h>)
@@ -44,6 +43,13 @@
 #import "WhatsAppShare.h"
 #import "GooglePlusShare.h"
 #import "EmailShare.h"
+#import "InstagramShare.h"
+
+@interface RNShare()
+
+@property (nonatomic, strong) InstagramShare *instagramShare;
+
+@end
 
 @implementation RNShare
 - (dispatch_queue_t)methodQueue
@@ -81,9 +87,39 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)options
             RCTLog(@"TRY OPEN email");
             EmailShare *shareCtl = [[EmailShare alloc] init];
             [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback];
+        } else if ([social isEqualToString:@"instagram"]) {
+            _instagramShare = [[InstagramShare alloc] init];
+            [_instagramShare shareSingle:options successCallback: ^(NSArray *response) {
+                successCallback(response);
+                _instagramShare = nil;
+            }  failureCallback: ^(NSError *error) {
+                failureCallback(error);
+                _instagramShare = nil;
+            }];
         }
     } else {
         RCTLogError(@"key 'social' missing in options");
+        return;
+    }
+}
+
+RCT_EXPORT_METHOD(shareMultiple:(NSDictionary *)options
+                  successCallback:(RCTResponseSenderBlock)successCallback
+                  failureCallback:(RCTResponseErrorBlock)failureCallback) {
+    NSString *social = [RCTConvert NSString:options[@"social"]];
+    if (social) {
+        if([social isEqualToString:@"instagram"]) {
+            _instagramShare = [[InstagramShare alloc] init];
+            [_instagramShare shareMultiple:options successCallback: ^(NSArray *response) {
+                successCallback(response);
+                _instagramShare = nil;
+            }  failureCallback: ^(NSError *error) {
+                failureCallback(error);
+                _instagramShare = nil;
+            }];
+        }
+    } else {
+        RCTLogError(@"No exists social key");
         return;
     }
 }
