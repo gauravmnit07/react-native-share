@@ -52,10 +52,12 @@
 @end
 
 @implementation RNShare
+  
 - (dispatch_queue_t)methodQueue
 {
     return dispatch_get_main_queue();
 }
+
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)options
@@ -65,7 +67,7 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)options
     
     NSString *social = [RCTConvert NSString:options[@"social"]];
     if (social) {
-        RCTLog(social);
+        RCTLog(@"Channel: %@", social);
         if([social isEqualToString:@"facebook"]) {
             RCTLog(@"TRY OPEN FACEBOOK");
             GenericShare *shareCtl = [[GenericShare alloc] init];
@@ -80,7 +82,6 @@ RCT_EXPORT_METHOD(shareSingle:(NSDictionary *)options
             [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback];
         } else if([social isEqualToString:@"whatsapp"]) {
             RCTLog(@"TRY OPEN whatsapp");
-            
             WhatsAppShare *shareCtl = [[WhatsAppShare alloc] init];
             [shareCtl shareSingle:options failureCallback: failureCallback successCallback: successCallback];
         } else if([social isEqualToString:@"email"]) {
@@ -113,7 +114,7 @@ RCT_EXPORT_METHOD(shareMultiple:(NSDictionary *)options
             [_instagramShare shareMultiple:options successCallback: ^(NSArray *response) {
                 successCallback(response);
                 _instagramShare = nil;
-            }  failureCallback: ^(NSError *error) {
+            } failureCallback: ^(NSError *error) {
                 failureCallback(error);
                 _instagramShare = nil;
             }];

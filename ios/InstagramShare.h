@@ -2,8 +2,8 @@
 //  InstagramShare.h
 //  RNShare
 //
-//  Created by Mudit Jumnani on 03/05/18.
-//  Copyright © 2018 Facebook. All rights reserved.
+//  Created by Gaurav Bansal on 8/14/17.
+//  Copyright © 2017 Facebook. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -23,11 +23,19 @@
 #else
 #import "React/RCTBridge.h"   // Required when used as a Pod in a Swift project
 #endif
+// import RCTLog
+#if __has_include(<React/RCTUtils.h>)
+#import <React/RCTLog.h>
+#elif __has_include("RCTLog.h")
+#import "RCTLog.h"
+#else
+#import "React/RCTLog.h"   // Required when used as a Pod in a Swift project
+#endif
 
-@interface InstagramShare : NSObject
+@interface InstagramShare : NSObject <RCTBridgeModule>
+ 
+- (void)shareSingle:(NSDictionary *)options successCallback:(RCTResponseSenderBlock)successCallback failureCallback:(RCTResponseErrorBlock)failureCallback;
 
-- (void)shareSingle:(NSDictionary *)options successCallback:(void (^)(NSArray *response))successCallback failureCallback:(void (^)(NSError *error))failureCallback;
-
-- (void)shareMultiple:(NSDictionary *)options successCallback:(void (^)(NSArray *response))successCallback failureCallback:(void (^)(NSError *error))failureCallback;
+- (void)shareMultiple:(NSDictionary *)options successCallback:(RCTResponseSenderBlock)successCallback failureCallback:(RCTResponseErrorBlock)failureCallback;
 
 @end

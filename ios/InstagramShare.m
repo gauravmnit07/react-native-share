@@ -2,8 +2,8 @@
 //  InstagramShare.m
 //  RNShare
 //
-//  Created by Mudit Jumnani on 03/05/18.
-//  Copyright © 2018 Facebook. All rights reserved.
+//  Created by Gaurav Bansal on 8/14/17.
+//  Copyright © 2017 Facebook. All rights reserved.
 //
 
 #import "InstagramShare.h"
@@ -16,12 +16,12 @@
 
 #define kMediaAlbumTitle NSLocalizedString(@"Instagram", @"title for new media album")
 
-static NSTimeInterval timeInterval = 10.0;
+static NSTimeInterval timeInterval = 20.0;
 
 @implementation InstagramShare
 
-- (void)shareSingle:(NSDictionary *)options successCallback:(void (^)(NSArray *response))successCallback failureCallback:(void (^)(NSError *error))failureCallback {
-    if(![self _canOpenInInstagram]) {
+- (void)shareSingle:(NSDictionary *)options successCallback:(RCTResponseSenderBlock)successCallback failureCallback:(RCTResponseErrorBlock)failureCallback {
+    if (![self _canOpenInInstagram]) {
         failureCallback([self getErrorWithMessage:@"Instagram app not installed"]);
         return;
     }
@@ -62,8 +62,8 @@ static NSTimeInterval timeInterval = 10.0;
     }
 }
 
-- (void)shareMultiple:(NSDictionary *)options successCallback:(void (^)(NSArray *response))successCallback failureCallback:(void (^)(NSError *error))failureCallback {
-    if(![self _canOpenInInstagram]) {
+- (void)shareMultiple:(NSDictionary *)options successCallback:(RCTResponseSenderBlock)successCallback failureCallback:(RCTResponseErrorBlock)failureCallback {
+    if (![self _canOpenInInstagram]) {
         failureCallback([self getErrorWithMessage:@"Instagram app not installed"]);
         return;
     }
@@ -316,6 +316,7 @@ static NSTimeInterval timeInterval = 10.0;
 }
 
 #pragma mark -
+
 - (NSError *)getErrorWithMessage:(NSString *)errorMessage {
     NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
     return [NSError errorWithDomain:@"com.share" code:3 userInfo:userInfo];
