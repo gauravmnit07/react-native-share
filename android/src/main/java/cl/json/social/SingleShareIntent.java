@@ -33,6 +33,7 @@ public abstract class SingleShareIntent extends ShareIntent {
     public void open(ReadableMap options) throws ActivityNotFoundException {
         System.out.println(getPackage());
         //  check if package is installed
+        this.setIntent(new Intent(android.content.Intent.ACTION_SEND));
         if(getPackage() != null || getDefaultWebLink() != null || getPlayStoreLink() != null) {
             if(this.isPackageInstalled(getPackage(), reactContext)) {
                 System.out.println("INSTALLED");

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DB5E23B209B2E0600C4C3CF /* RNSPhotoLibraryUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5E23A209B2E0600C4C3CF /* RNSPhotoLibraryUtility.m */; };
+		2DB5E242209B2E7000C4C3CF /* RNSTemporaryFileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5E241209B2E7000C4C3CF /* RNSTemporaryFileStorage.m */; };
+		2DB5E245209B2E8100C4C3CF /* RNSFileStorageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5E244209B2E8100C4C3CF /* RNSFileStorageUtils.m */; };
+		2DB5E249209B2EA900C4C3CF /* NSStringRNShareAdditons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5E248209B2EA900C4C3CF /* NSStringRNShareAdditons.m */; };
 		7E7996BB1F41820300C00DD3 /* InstagramShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7996BA1F41820300C00DD3 /* InstagramShare.m */; };
 		B33C22851D441713006BCD98 /* GenericShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C22841D441713006BCD98 /* GenericShare.m */; };
 		B33C22891D4419E8006BCD98 /* WhatsAppShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C22881D4419E8006BCD98 /* WhatsAppShare.m */; };
@@ -29,6 +33,14 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNShare.a; sourceTree = BUILT_PRODUCTS_DIR; };
+    2DB5E239209B2E0600C4C3CF /* RNSPhotoLibraryUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSPhotoLibraryUtility.h; sourceTree = "<group>"; };
+		2DB5E23A209B2E0600C4C3CF /* RNSPhotoLibraryUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSPhotoLibraryUtility.m; sourceTree = "<group>"; };
+		2DB5E240209B2E7000C4C3CF /* RNSTemporaryFileStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSTemporaryFileStorage.h; sourceTree = "<group>"; };
+		2DB5E241209B2E7000C4C3CF /* RNSTemporaryFileStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSTemporaryFileStorage.m; sourceTree = "<group>"; };
+		2DB5E243209B2E8100C4C3CF /* RNSFileStorageUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSFileStorageUtils.h; sourceTree = "<group>"; };
+		2DB5E244209B2E8100C4C3CF /* RNSFileStorageUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSFileStorageUtils.m; sourceTree = "<group>"; };
+		2DB5E247209B2EA900C4C3CF /* NSStringRNShareAdditons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSStringRNShareAdditons.h; sourceTree = "<group>"; };
+		2DB5E248209B2EA900C4C3CF /* NSStringRNShareAdditons.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSStringRNShareAdditons.m; sourceTree = "<group>"; };
 		7E7996B91F41820300C00DD3 /* InstagramShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramShare.h; sourceTree = "<group>"; };
 		7E7996BA1F41820300C00DD3 /* InstagramShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramShare.m; sourceTree = "<group>"; };
 		B33C22841D441713006BCD98 /* GenericShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericShare.m; sourceTree = "<group>"; };
@@ -62,9 +74,41 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2DB5E238209B2DEF00C4C3CF /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5E239209B2E0600C4C3CF /* RNSPhotoLibraryUtility.h */,
+				2DB5E23A209B2E0600C4C3CF /* RNSPhotoLibraryUtility.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		2DB5E23F209B2E5800C4C3CF /* DiskStorage */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5E240209B2E7000C4C3CF /* RNSTemporaryFileStorage.h */,
+				2DB5E241209B2E7000C4C3CF /* RNSTemporaryFileStorage.m */,
+				2DB5E243209B2E8100C4C3CF /* RNSFileStorageUtils.h */,
+				2DB5E244209B2E8100C4C3CF /* RNSFileStorageUtils.m */,
+			);
+			path = DiskStorage;
+			sourceTree = "<group>";
+		};
+		2DB5E246209B2E9600C4C3CF /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5E247209B2EA900C4C3CF /* NSStringRNShareAdditons.h */,
+				2DB5E248209B2EA900C4C3CF /* NSStringRNShareAdditons.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				2DB5E246209B2E9600C4C3CF /* Additions */,
+				2DB5E23F209B2E5800C4C3CF /* DiskStorage */,
+				2DB5E238209B2DEF00C4C3CF /* utils */,
 				B33C22801D43F9B0006BCD98 /* social */,
 				B3E7B5881CC2AC0600A0062D /* RNShare.h */,
 				B3E7B5891CC2AC0600A0062D /* RNShare.m */,
@@ -146,9 +190,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3EEE48E1D4844E7008422B6 /* GooglePlusShare.m in Sources */,
+				2DB5E249209B2EA900C4C3CF /* NSStringRNShareAdditons.m in Sources */,
+				2DB5E242209B2E7000C4C3CF /* RNSTemporaryFileStorage.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNShare.m in Sources */,
+				2DB5E245209B2E8100C4C3CF /* RNSFileStorageUtils.m in Sources */,
 				7E7996BB1F41820300C00DD3 /* InstagramShare.m in Sources */,
 				B33C22891D4419E8006BCD98 /* WhatsAppShare.m in Sources */,
+				2DB5E23B209B2E0600C4C3CF /* RNSPhotoLibraryUtility.m in Sources */,
 				B33C228B1D442577006BCD98 /* EmailShare.m in Sources */,
 				B33C22851D441713006BCD98 /* GenericShare.m in Sources */,
 			);

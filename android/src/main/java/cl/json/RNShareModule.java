@@ -62,6 +62,7 @@ public class RNShareModule extends ReactContextBaseJavaModule {
         System.out.println("SHARE SINGLE METHOD");
         if (ShareIntent.hasValidKey("social", options) ) {
             try{
+                this.sharesExtra.get(options.getString("social")).clearExtras();
                 this.sharesExtra.get(options.getString("social")).open(options);
                 successCallback.invoke("OK");
             }catch(ActivityNotFoundException ex) {
